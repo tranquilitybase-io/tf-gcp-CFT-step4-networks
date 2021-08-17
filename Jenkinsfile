@@ -55,8 +55,8 @@ pipeline {
                      sh '''
                          export CLOUD_BUILD_PROJECT_ID=$cicd_project 
                          cd ./scripts/3-networks/ && echo \"$networks_params\" | jq "." > common.auto.tfvars.json
-                         mv shared.auto.example.tfvars ./shared.auto.tfvars.json && echo \"$networks_params\" | jq "." > access_context.auto.tfvars.json 
-                         cd ../.. && make networks
+                         mv shared.auto.example.tfvars ./shared.auto.tfvars.json && mv backend-example.tf ./backend.tf
+                         echo \"$networks_params\" | jq "." > access_context.auto.tfvars.json && cd ../.. && make networks
                          echo "3-networks  done"
                          '''
     
