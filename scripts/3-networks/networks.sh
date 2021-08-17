@@ -69,7 +69,8 @@ git commit -m 'Your message'
 echo Removing unneeded backend example file
 TF_EXAMPLE_VARS=./envs/shared/backend.tf
 [ -f $TF_EXAMPLE_VARS ] && { echo "Removing unneeded $TF_EXAMPLE_VARS file: $TF_EXAMPLE_VARS"; rm $TF_EXAMPLE_VARS; } || { echo "No $TF_EXAMPLE_VARS file found"; exit 1; }
-
+ls
+pwd
 echo Copying in needed backend example file
 TF_VARS=../../scripts/3-networks/backend.tf
 COPY_LOCATION=./envs/shared/
