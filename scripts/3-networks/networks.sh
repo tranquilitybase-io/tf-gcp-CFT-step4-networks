@@ -69,45 +69,40 @@ git commit -m 'Your message'
 echo Removing unneeded backend example file
 TF_EXAMPLE_VARS=./envs/shared/backend.tf
 [ -f $TF_EXAMPLE_VARS ] && { echo "Removing unneeded $TF_EXAMPLE_VARS file: $TF_EXAMPLE_VARS"; rm $TF_EXAMPLE_VARS; } || { echo "No $TF_EXAMPLE_VARS file found"; exit 1; }
-ls
-pwd
+
 echo Copying in needed backend example file
 TF_VARS=../../scripts/3-networks/backend.tf
-COPY_LOCATION=./envs/shared/
+COPY_LOCATION=./envs/shared/.
 [ -f $TF_VARS ] && { echo "Copying $TF_VARS to $COPY_LOCATION"; cp $TF_VARS $COPY_LOCATION; } || { echo "No $TF_VARS file found"; exit 1; }
-
-cat >> ./env/shared/variables.tf <<EOL
-variable "gcs_bucket_tfstate" {
-  description = "Backend state file location"
-  type        = "string"
-  default     = "gcs_bucket_tfstate"
-}
-EOL
 
 echo Local shared file TF apply
 cd ./envs/shared/
-terraform init
-terraform plan
-terraform apply
-cd ../..
+
+ls 
+pwd
+
+# terraform init
+# terraform plan
+# terraform apply
+# cd ../..
 
 
-echo Pushing plan
-git add .
-git commit -m 'Your message'
-git push --set-upstream origin plan --force
+# echo Pushing plan
+# git add .
+# git commit -m 'Your message'
+# git push --set-upstream origin plan --force
 
-sleep 300
+# sleep 300
 
-git checkout -b production
-git push origin production --force
+# git checkout -b production
+# git push origin production --force
 
-sleep 300
+# sleep 300
 
-git checkout -b development
-git push origin development --force
+# git checkout -b development
+# git push origin development --force
 
-sleep 300
+# sleep 300
 
-git checkout -b non-production
-git push origin non-production --force
+# git checkout -b non-production
+# git push origin non-production --force
