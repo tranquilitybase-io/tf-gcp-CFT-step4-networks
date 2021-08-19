@@ -64,6 +64,8 @@ pipeline {
                          mv shared.auto.example.tfvars ./shared.auto.tfvars.json                        
                          mv backend-example.tf backend.tf
                          sed "s/UPDATE_ME/$state_bucket/" backend.tf
+                         cat backend.tf
+                         pwd
                          cd ../..
                          make networks
                          echo "3-networks  done"
