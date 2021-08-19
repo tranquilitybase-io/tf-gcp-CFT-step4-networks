@@ -61,7 +61,7 @@ pipeline {
                          cd ./scripts/3-networks/
                          echo \"$networks_params\" | jq "." > common.auto.tfvars.json   
                          echo \"$networks_params\" | jq "." > access_context.auto.tfvars.json
-                         mv shared.auto.example.tfvars ./shared.auto.tfvars.json                        
+                         echo \"$networks_params\" | jq "." > shared.auto.tfvars.json
                          mv backend-example.tf backend.tf
                          sed -i "s/UPDATE_ME/$state_bucket/" backend.tf
                          cd ../..
