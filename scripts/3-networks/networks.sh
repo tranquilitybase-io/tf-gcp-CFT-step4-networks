@@ -36,13 +36,6 @@ cp ../terraform-example-foundation/build/tf-wrapper.sh .
 chmod 755 ./tf-wrapper.sh
 
 
-echo "----"
-cd ./envs/shared
-ls
-pwd
-cd ../..
-echo "----"
-
 echo Removing unneeded access_context.auto.example.tfvars
 TF_EXAMPLE_VARS=./access_context.auto.example.tfvars
 [ -f $TF_EXAMPLE_VARS ] && { echo "Removing unneeded $TF_EXAMPLE_VARS file: $TF_EXAMPLE_VARS"; rm $TF_EXAMPLE_VARS; } || { echo "No $TF_EXAMPLE_VARS file found"; exit 1; }
@@ -90,21 +83,16 @@ COPY_LOCATION=./envs/shared/.
 echo Local shared file TF apply
 cd ./envs/shared/
 
-echo "----"
-ls -la
-pwd
-echo "----"
-
 terraform init
 terraform plan
-# terraform apply
-# cd ../..
+terraform apply
+cd ../..
 
 
-# echo Pushing plan
-# git add .
-# git commit -m 'Your message'
-# git push --set-upstream origin plan --force
+echo Pushing plan
+git add .
+git commit -m 'Your message'
+git push --set-upstream origin plan --force
 
 # sleep 300
 
