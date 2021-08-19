@@ -70,6 +70,7 @@ TF_EXAMPLE_VARS=./envs/shared/backend.tf
 [ -f $TF_EXAMPLE_VARS ] && { echo "Removing unneeded $TF_EXAMPLE_VARS file: $TF_EXAMPLE_VARS"; rm $TF_EXAMPLE_VARS; } || { echo "No $TF_EXAMPLE_VARS file found"; exit 1; }
 
 echo "---"
+pwd
 cat ../../scripts/3-networks/backend.tf
 echo "---"
 
