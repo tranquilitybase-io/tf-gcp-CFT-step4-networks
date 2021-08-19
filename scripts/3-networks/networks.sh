@@ -38,14 +38,21 @@ chmod 755 ./tf-wrapper.sh
 echo Removing unneeded access_context.auto.example.tfvars
 TF_EXAMPLE_VARS=./access_context.auto.example.tfvars
 [ -f $TF_EXAMPLE_VARS ] && { echo "Removing unneeded $TF_EXAMPLE_VARS file: $TF_EXAMPLE_VARS"; rm $TF_EXAMPLE_VARS; } || { echo "No $TF_EXAMPLE_VARS file found"; exit 1; }
+TF_EXAMPLE_VARS=./envs/shared/access_context.auto.tfvars
+[ -f $TF_EXAMPLE_VARS ] && { echo "Removing unneeded $TF_EXAMPLE_VARS file: $TF_EXAMPLE_VARS"; rm $TF_EXAMPLE_VARS; } || { echo "No $TF_EXAMPLE_VARS file found"; exit 1; }
+
 
 echo Copying in needed access_context.auto.tfvars
 TF_VARS=../../scripts/3-networks/access_context.auto.tfvars.json
 COPY_LOCATION=./envs/shared/
 [ -f $TF_VARS ] && { echo "Copying $TF_VARS to $COPY_LOCATION"; cp $TF_VARS $COPY_LOCATION; } || { echo "No $TF_VARS file found"; exit 1; }
 
+
+
 echo Removing unneeded common.auto.example.tfvars
 TF_EXAMPLE_VARS=./common.auto.example.tfvars
+[ -f $TF_EXAMPLE_VARS ] && { echo "Removing unneeded $TF_EXAMPLE_VARS file: $TF_EXAMPLE_VARS"; rm $TF_EXAMPLE_VARS; } || { echo "No $TF_EXAMPLE_VARS file found"; exit 1; }
+TF_EXAMPLE_VARS=./envs/shared/common.auto.tfvars
 [ -f $TF_EXAMPLE_VARS ] && { echo "Removing unneeded $TF_EXAMPLE_VARS file: $TF_EXAMPLE_VARS"; rm $TF_EXAMPLE_VARS; } || { echo "No $TF_EXAMPLE_VARS file found"; exit 1; }
 
 echo Copying in needed common.auto.tfvars
@@ -56,6 +63,9 @@ COPY_LOCATION=./envs/shared/
 echo Removing unneeded shared.auto.example.tfvars
 TF_EXAMPLE_VARS=./shared.auto.example.tfvars
 [ -f $TF_EXAMPLE_VARS ] && { echo "Removing unneeded $TF_EXAMPLE_VARS file: $TF_EXAMPLE_VARS"; rm $TF_EXAMPLE_VARS; } || { echo "No $TF_EXAMPLE_VARS file found"; exit 1; }
+TF_EXAMPLE_VARS=./envs/shared/shared.auto.tfvars
+[ -f $TF_EXAMPLE_VARS ] && { echo "Removing unneeded $TF_EXAMPLE_VARS file: $TF_EXAMPLE_VARS"; rm $TF_EXAMPLE_VARS; } || { echo "No $TF_EXAMPLE_VARS file found"; exit 1; }
+
 
 echo Copying in needed shared.auto.tfvars
 TF_VARS=../../scripts/3-networks/shared.auto.tfvars.json
@@ -84,14 +94,14 @@ echo "----"
 
 terraform init
 terraform plan
-terraform apply
-cd ../..
+# terraform apply
+# cd ../..
 
 
-echo Pushing plan
-git add .
-git commit -m 'Your message'
-git push --set-upstream origin plan --force
+# echo Pushing plan
+# git add .
+# git commit -m 'Your message'
+# git push --set-upstream origin plan --force
 
 # sleep 300
 
