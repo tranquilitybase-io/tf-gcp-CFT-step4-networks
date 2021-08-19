@@ -46,8 +46,17 @@ echo "----"
 echo Removing unneeded access_context.auto.example.tfvars
 TF_EXAMPLE_VARS=./access_context.auto.example.tfvars
 [ -f $TF_EXAMPLE_VARS ] && { echo "Removing unneeded $TF_EXAMPLE_VARS file: $TF_EXAMPLE_VARS"; rm $TF_EXAMPLE_VARS; } || { echo "No $TF_EXAMPLE_VARS file found"; exit 1; }
-TF_EXAMPLE_VARS=./envs/shared/access_context.auto.tfvars
-[ -f $TF_EXAMPLE_VARS ] && { echo "Removing unneeded $TF_EXAMPLE_VARS file: $TF_EXAMPLE_VARS"; rm $TF_EXAMPLE_VARS; } || { echo "No $TF_EXAMPLE_VARS file found"; exit 1; }
+
+rm ./envs/shared/access_context.auto.tfvars
+echo "----"
+cd ./envs/shared
+ls
+pwd
+cd ../..
+echo "----"
+
+# TF_EXAMPLE_VARS=./envs/shared/access_context.auto.tfvars
+# [ -f $TF_EXAMPLE_VARS ] && { echo "Removing unneeded $TF_EXAMPLE_VARS file: $TF_EXAMPLE_VARS"; rm $TF_EXAMPLE_VARS; } || { echo "No $TF_EXAMPLE_VARS file found"; exit 1; }
 
 
 # echo Copying in needed access_context.auto.tfvars
