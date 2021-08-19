@@ -9,6 +9,7 @@ pipeline {
 
        def networks_params = "${networks_params}"
        def cicd_project = "${cicd_project}"
+       def state_bucket = "${state_bucket}" 
 
   }
     stages {
@@ -54,10 +55,15 @@ pipeline {
                  container('gcloud') {
                      sh '''
                          export CLOUD_BUILD_PROJECT_ID=$cicd_project 
-                         cd ./scripts/3-networks/ && echo \"$networks_params\" | jq "." > common.auto.tfvars.json
-                         mv shared.auto.example.tfvars ./shared.auto.tfvars.json 
+                         
+                         cd ./scripts/3-networks/
+                         echo \"$networks_params\" | jq "." > common.auto.tfvars.json   
+                         echo \"$networks_params\" | jq "." > access_context.auto.tfvars.json
+                         mv shared.auto.example.tfvars ./shared.auto.tfvars.json                        
                          mv backend-example.tf backend.tf
-                         echo \"$networks_params\" | jq "." > access_context.auto.tfvars.json && cd ../.. && make networks
+                         sed "s/UPDATE_ME/$state_bucket/" backend.tf
+                         cd ../..
+                         make networks
                          echo "3-networks  done"
                          '''
     
