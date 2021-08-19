@@ -18,6 +18,8 @@ pipeline {
             steps {
                 sh '''
                 echo \"$networks_params\"
+                echo \"$cicd_project\"
+                echo \"$state_bucket\"
                 '''
             }
         }
