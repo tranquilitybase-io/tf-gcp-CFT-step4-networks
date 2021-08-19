@@ -79,15 +79,15 @@ cd ./envs/shared/
 
 
 terraform init
-# terraform plan
-# terraform apply
-# cd ../..
+terraform plan
+terraform apply
+cd ../..
 
 
-# echo Pushing plan
-# git add .
-# git commit -m 'Your message'
-# git push --set-upstream origin plan --force
+echo Pushing plan
+git add .
+git commit -m 'Your message'
+git push --set-upstream origin plan --force
 
 # sleep 300
 
