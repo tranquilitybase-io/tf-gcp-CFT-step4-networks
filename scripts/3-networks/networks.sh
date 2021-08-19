@@ -77,6 +77,10 @@ COPY_LOCATION=./envs/shared/.
 echo Local shared file TF apply
 cd ./envs/shared/
 
+echo "----"
+ls -la
+pwd
+echo "----"
 
 terraform init
 terraform plan
