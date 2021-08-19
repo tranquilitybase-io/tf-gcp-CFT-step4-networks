@@ -41,7 +41,7 @@ TF_EXAMPLE_VARS=./access_context.auto.example.tfvars
 
 echo Copying in needed access_context.auto.tfvars
 TF_VARS=../../scripts/3-networks/access_context.auto.tfvars.json
-COPY_LOCATION=.
+COPY_LOCATION=./envs/shared/
 [ -f $TF_VARS ] && { echo "Copying $TF_VARS to $COPY_LOCATION"; cp $TF_VARS $COPY_LOCATION; } || { echo "No $TF_VARS file found"; exit 1; }
 
 echo Removing unneeded common.auto.example.tfvars
@@ -50,7 +50,7 @@ TF_EXAMPLE_VARS=./common.auto.example.tfvars
 
 echo Copying in needed common.auto.tfvars
 TF_VARS=../../scripts/3-networks/common.auto.tfvars.json
-COPY_LOCATION=.
+COPY_LOCATION=./envs/shared/
 [ -f $TF_VARS ] && { echo "Copying $TF_VARS to $COPY_LOCATION"; cp $TF_VARS $COPY_LOCATION; } || { echo "No $TF_VARS file found"; exit 1; }
 
 echo Removing unneeded shared.auto.example.tfvars
@@ -59,7 +59,7 @@ TF_EXAMPLE_VARS=./shared.auto.example.tfvars
 
 echo Copying in needed shared.auto.tfvars
 TF_VARS=../../scripts/3-networks/shared.auto.tfvars.json
-COPY_LOCATION=.
+COPY_LOCATION=./envs/shared/
 [ -f $TF_VARS ] && { echo "Copying $TF_VARS to $COPY_LOCATION"; cp $TF_VARS $COPY_LOCATION; } || { echo "No $TF_VARS file found"; exit 1; }
 
 git add .
