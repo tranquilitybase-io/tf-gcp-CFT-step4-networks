@@ -63,9 +63,7 @@ pipeline {
                          echo \"$networks_params\" | jq "." > access_context.auto.tfvars.json
                          mv shared.auto.example.tfvars ./shared.auto.tfvars.json                        
                          mv backend-example.tf backend.tf
-                         sed "s/UPDATE_ME/$state_bucket/" backend.tf
-                         cat backend.tf
-                         pwd
+                         sed -i "s/UPDATE_ME/$state_bucket/" backend.tf
                          cd ../..
                          make networks
                          echo "3-networks  done"
