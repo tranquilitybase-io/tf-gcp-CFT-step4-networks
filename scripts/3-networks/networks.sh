@@ -80,6 +80,7 @@ cd ./envs/shared/
 
 ls 
 pwd
+cat backend.tf
 
 # terraform init
 # terraform plan
