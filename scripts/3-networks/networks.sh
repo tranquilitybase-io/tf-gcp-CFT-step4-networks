@@ -58,7 +58,7 @@ COPY_LOCATION=./envs/shared/
 echo Removing unneeded common.auto.example.tfvars
 TF_EXAMPLE_VARS=./common.auto.example.tfvars
 [ -f $TF_EXAMPLE_VARS ] && { echo "Removing unneeded $TF_EXAMPLE_VARS file: $TF_EXAMPLE_VARS"; rm $TF_EXAMPLE_VARS; } || { echo "No $TF_EXAMPLE_VARS file found"; exit 1; }
-rm =./envs/shared/common.auto.tfvars
+rm ./envs/shared/common.auto.tfvars
 
 echo Copying in needed common.auto.tfvars
 TF_VARS=../../scripts/3-networks/common.auto.tfvars.json
@@ -68,7 +68,7 @@ COPY_LOCATION=./envs/shared/
 echo Removing unneeded shared.auto.example.tfvars
 TF_EXAMPLE_VARS=./shared.auto.example.tfvars
 [ -f $TF_EXAMPLE_VARS ] && { echo "Removing unneeded $TF_EXAMPLE_VARS file: $TF_EXAMPLE_VARS"; rm $TF_EXAMPLE_VARS; } || { echo "No $TF_EXAMPLE_VARS file found"; exit 1; }
-rm ./envs/shared/shared.auto.tfvars.json
+rm ./envs/shared/shared.auto.tfvars
 
 echo Copying in needed shared.auto.tfvars
 TF_VARS=../../scripts/3-networks/shared.auto.tfvars.json
