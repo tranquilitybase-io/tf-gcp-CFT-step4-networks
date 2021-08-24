@@ -8,10 +8,6 @@
 
      * [Prerequisites](#prerequisites)
      * [The Deployment Process (Overview)](#the-deployment-process-overview)
-     * [Roles and Required Access](#roles-and-access)
-     * [0-bootstrap](#0-bootstrap)
-     * [1-org](#1-org)
-     * [2-environment](#2-environment)
      * [3-network](#3-network)
  
          
@@ -42,67 +38,40 @@
 
 <img width="1018" alt="Screenshot 2021-07-27 at 11 43 57 am" src="https://user-images.githubusercontent.com/80045831/127141366-262007ca-c4a6-48c5-a0bc-b89bdeb694a8.png">
 
-## Roles and Required Access
-
-### User account :
--
--
--
-### Service account : 
--
--
+## 3-networks
 
 
+### Instructions:
 
-## 0-bootstrap
-This repo is part of a multi-part guide that shows how to configure and deploy the example.com reference architecture described in Google Cloud security foundations guide (PDF). 
+1. Git clone repo.
+   ```
+   git clone https://github.com/tranquilitybase-io/tf-gcp-CFT-step4-networks.git
+   ```
 
-### Instructions: 
+1. Change into env script folder.
+   ```
+   cd ./tf-gcp-CFT-step4-networks/scripts/3-networks
+   ```
+1. Rename `access_context.auto.example.tfvars` to `access_context.auto.tfvars` and update the file with values from your environment.
 
-	git clone https://github.com/tranquilitybase-io/tf-gcp-CFT-architecture.git
-	
-	cd ./tf-gcp-CFT-architecture/scripts/bootstrap
-	
-Edit the file called "terraform.example.tfvars"	
-Rename the file "terraform.example.tfvars" to "terraform.tfvars"
+1. Rename `backend-example.tf` to `backend.tf` and update the file with the project id of the cicd project created within the bootstrap step.
 
-	cd ../..
-	
-	make bootstrap
-	
-Go to the folder:
-	
-	tf-gcp-CFT-architecture/bootstrap/terraform-example-foundation/0-bootstrap$
+1. Rename `common.auto.example.tfvars` to `common.auto.tfvars` and update the file with values from your environment.
 
-Note the email address of the admin. You need this address in a later procedure. under which folder?
+1. Rename `env-variables-example.sh` to `env-variables.sh` and update the file with the project id of the cicd project created within the bootstrap step.
 
-	 terraform output terraform_service_account
+1. Rename `shared.auto.example.tfvars` to `shared.auto.tfvars` and update the file with the project id of the cicd project created within the bootstrap step.
 
-## 1-org
+1. Change back into root `./tf-gcp-CFT-step4-networks` directory.
+   ```
+   cd ../..
+   ```
+1. Execute env script.
+   ```
+   make networks
+   ```
+   
 
-This repo is part of a multi-part guide that shows how to configure and deploy the example.com reference architecture described in Google Cloud security foundations guide (PDF). 
-
-### Instructions: 
-
-    cd ./tf-gcp-CFT-architecture/scripts/bootstrap
-	
-Edit the file called "terraform.example.tfvars"	 with your project information
-
-Rename the file "terraform.example.tfvars" to "terraform.tfvars"
-
-    mv terraform.example.tfvars terraform.tfvars
-
-Edit the file called "env-variables-example.sh" and rename the file "env-variables-example.sh" to env-variables.sh 
-
-In "export CLOUD_BUILD_PROJECT_ID=<project_id>"
-Use the project id of the CI/CD ex (prj-b-cicd-xxxx)
-
-   	mv env-variables-example.sh env-variables.sh
-	
-Run org.sh
-
-	cd ../..
-	make org
 
 
 
