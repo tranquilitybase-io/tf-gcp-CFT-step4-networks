@@ -1,8 +1,8 @@
 NETWORKS_FOLDER=./networks
 [ -d $NETWORKS_FOLDER ] && { echo "Removing past deployment file $NETWORKS_FOLDER"; rm -rf $NETWORKS_FOLDER; } || echo "No past deployments found"
 
-echo sourcing required variables
-#source ./scripts/3-networks/env-variables.sh
+ENV_VARIABLES=./scripts/1-org/env-variables.sh
+[ -f $ENV_VARIABLES ] && { echo Sourcing required variables; source $ENV_VARIABLES; } || echo "Can't find $ENV_VARIABLES file, assuming Jenkins deployment"
 
 
 echo Creating networks folder
