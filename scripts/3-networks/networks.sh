@@ -118,6 +118,9 @@ cd ./envs/shared/
 #terraform apply --auto-approve
 cd ../..
 
+ls
+pwd
+ls
 
 echo Pushing plan
 git add .
