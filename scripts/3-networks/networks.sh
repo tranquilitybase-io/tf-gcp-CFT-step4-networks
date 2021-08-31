@@ -118,26 +118,23 @@ cd ./envs/shared/
 #terraform apply --auto-approve
 cd ../..
 
-ls
-pwd
-ls
 
 echo Pushing plan
 git add .
 git commit -m 'Your message'
 git push --set-upstream origin plan --force
 
-# sleep 300
+sleep 300
 
-# git checkout -b production
-# git push origin production --force
+git checkout -b production
+git push origin production --force
 
-# sleep 300
+sleep 300
 
-# git checkout -b development
-# git push origin development --force
+git checkout -b development
+git push origin development --force
 
-# sleep 300
+sleep 300
 
-# git checkout -b non-production
-# git push origin non-production --force
+git checkout -b non-production
+git push origin non-production --force
