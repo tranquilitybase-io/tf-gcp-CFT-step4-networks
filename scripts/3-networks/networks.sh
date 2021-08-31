@@ -45,12 +45,12 @@ rm ./envs/shared/access_context.auto.tfvars
 
 echo Copying in needed variables for dev jenkins deployment 
 TF_VARS=../../scripts/3-networks/access_context.auto.tfvars.json
-COPY_LOCATION=./envs/shared/
+COPY_LOCATION=./envs/shared/.
 [ -f $TF_VARS ] && { echo "Copying $TF_VARS to $COPY_LOCATION"; cp --remove-destination $TF_VARS $COPY_LOCATION; } || { echo "No $TF_VARS file found"; echo "assuming bash deployment"; }
 
 echo Copying in needed variables for dev for bash deployment
 TF_VARS=../../scripts/3-networks/access_context.auto.tfvars
-COPY_LOCATION=./envs/shared/
+COPY_LOCATION=./envs/shared/.
 [ -f $TF_VARS ] && { echo "Copying $TF_VARS to $COPY_LOCATION"; cp --remove-destination $TF_VARS $COPY_LOCATION; } || { echo "No $TF_VARS file found"; echo "assuming jenkins deployment"; }
 
 
@@ -63,12 +63,12 @@ rm ./envs/shared/common.auto.tfvars
 
 echo Copying in needed variables for dev jenkins deployment 
 TF_VARS=../../scripts/3-networks/common.auto.tfvars.json
-COPY_LOCATION=./envs/shared/
+COPY_LOCATION=./envs/shared/.
 [ -f $TF_VARS ] && { echo "Copying $TF_VARS to $COPY_LOCATION"; cp --remove-destination $TF_VARS $COPY_LOCATION; } || { echo "No $TF_VARS file found"; echo "assuming bash deployment"; }
 
 echo Copying in needed variables for dev for bash deployment
 TF_VARS=../../scripts/3-networks/common.auto.tfvars
-COPY_LOCATION=./envs/shared/
+COPY_LOCATION=./envs/shared/.
 [ -f $TF_VARS ] && { echo "Copying $TF_VARS to $COPY_LOCATION"; cp --remove-destination $TF_VARS $COPY_LOCATION; } || { echo "No $TF_VARS file found"; echo "assuming jenkins deployment"; }
 
 
@@ -82,12 +82,12 @@ rm ./envs/shared/shared.auto.tfvars
 
 echo Copying in needed variables for dev jenkins deployment 
 TF_VARS=../../scripts/3-networks/shared.auto.tfvars.json
-COPY_LOCATION=./envs/shared/
+COPY_LOCATION=./envs/shared/.
 [ -f $TF_VARS ] && { echo "Copying $TF_VARS to $COPY_LOCATION"; cp --remove-destination $TF_VARS $COPY_LOCATION; } || { echo "No $TF_VARS file found"; echo "assuming bash deployment"; }
 
 echo Copying in needed variables for dev for bash deployment
 TF_VARS=../../scripts/3-networks/shared.auto.tfvars
-COPY_LOCATION=./envs/shared/
+COPY_LOCATION=./envs/shared/.
 [ -f $TF_VARS ] && { echo "Copying $TF_VARS to $COPY_LOCATION"; cp --remove-destination $TF_VARS $COPY_LOCATION; } || { echo "No $TF_VARS file found"; echo "assuming jenkins deployment"; }
 
 git add .
