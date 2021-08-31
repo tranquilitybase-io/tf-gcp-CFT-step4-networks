@@ -39,34 +39,56 @@ chmod 755 ./tf-wrapper.sh
 echo Removing unneeded access_context.auto.example.tfvars
 TF_EXAMPLE_VARS=./access_context.auto.example.tfvars
 [ -f $TF_EXAMPLE_VARS ] && { echo "Removing unneeded $TF_EXAMPLE_VARS file: $TF_EXAMPLE_VARS"; rm $TF_EXAMPLE_VARS; } || { echo "No $TF_EXAMPLE_VARS file found"; exit 1; }
+
+echo removing unneeded access_context.auto.tfvars file link from shared
 rm ./envs/shared/access_context.auto.tfvars
 
-echo Copying in needed access_context.auto.tfvars
+echo Copying in needed variables for dev jenkins deployment 
 TF_VARS=../../scripts/3-networks/access_context.auto.tfvars.json
 COPY_LOCATION=./envs/shared/
-[ -f $TF_VARS ] && { echo "Copying $TF_VARS to $COPY_LOCATION"; cp $TF_VARS $COPY_LOCATION; } || { echo "No $TF_VARS file found"; exit 1; }
+[ -f $TF_VARS ] && { echo "Copying $TF_VARS to $COPY_LOCATION"; cp --remove-destination $TF_VARS $COPY_LOCATION; } || { echo "No $TF_VARS file found"; echo "assuming bash deployment"; }
 
+echo Copying in needed variables for dev for bash deployment
+TF_VARS=../../scripts/3-networks/access_context.auto.tfvars
+COPY_LOCATION=./envs/shared/
+[ -f $TF_VARS ] && { echo "Copying $TF_VARS to $COPY_LOCATION"; cp --remove-destination $TF_VARS $COPY_LOCATION; } || { echo "No $TF_VARS file found"; echo "assuming jenkins deployment"; }
 
 
 echo Removing unneeded common.auto.example.tfvars
 TF_EXAMPLE_VARS=./common.auto.example.tfvars
 [ -f $TF_EXAMPLE_VARS ] && { echo "Removing unneeded $TF_EXAMPLE_VARS file: $TF_EXAMPLE_VARS"; rm $TF_EXAMPLE_VARS; } || { echo "No $TF_EXAMPLE_VARS file found"; exit 1; }
+
+echo removing unneeded access_context.auto.tfvars file link from shared
 rm ./envs/shared/common.auto.tfvars
 
-echo Copying in needed common.auto.tfvars
+echo Copying in needed variables for dev jenkins deployment 
 TF_VARS=../../scripts/3-networks/common.auto.tfvars.json
 COPY_LOCATION=./envs/shared/
-[ -f $TF_VARS ] && { echo "Copying $TF_VARS to $COPY_LOCATION"; cp $TF_VARS $COPY_LOCATION; } || { echo "No $TF_VARS file found"; exit 1; }
+[ -f $TF_VARS ] && { echo "Copying $TF_VARS to $COPY_LOCATION"; cp --remove-destination $TF_VARS $COPY_LOCATION; } || { echo "No $TF_VARS file found"; echo "assuming bash deployment"; }
+
+echo Copying in needed variables for dev for bash deployment
+TF_VARS=../../scripts/3-networks/common.auto.tfvars
+COPY_LOCATION=./envs/shared/
+[ -f $TF_VARS ] && { echo "Copying $TF_VARS to $COPY_LOCATION"; cp --remove-destination $TF_VARS $COPY_LOCATION; } || { echo "No $TF_VARS file found"; echo "assuming jenkins deployment"; }
+
+
 
 echo Removing unneeded shared.auto.example.tfvars
 TF_EXAMPLE_VARS=./shared.auto.example.tfvars
 [ -f $TF_EXAMPLE_VARS ] && { echo "Removing unneeded $TF_EXAMPLE_VARS file: $TF_EXAMPLE_VARS"; rm $TF_EXAMPLE_VARS; } || { echo "No $TF_EXAMPLE_VARS file found"; exit 1; }
+
+echo removing unneeded shared.auto.tfvars file link from shared
 rm ./envs/shared/shared.auto.tfvars
 
-echo Copying in needed shared.auto.tfvars
+echo Copying in needed variables for dev jenkins deployment 
 TF_VARS=../../scripts/3-networks/shared.auto.tfvars.json
 COPY_LOCATION=./envs/shared/
-[ -f $TF_VARS ] && { echo "Copying $TF_VARS to $COPY_LOCATION"; cp $TF_VARS $COPY_LOCATION; } || { echo "No $TF_VARS file found"; exit 1; }
+[ -f $TF_VARS ] && { echo "Copying $TF_VARS to $COPY_LOCATION"; cp --remove-destination $TF_VARS $COPY_LOCATION; } || { echo "No $TF_VARS file found"; echo "assuming bash deployment"; }
+
+echo Copying in needed variables for dev for bash deployment
+TF_VARS=../../scripts/3-networks/shared.auto.tfvars
+COPY_LOCATION=./envs/shared/
+[ -f $TF_VARS ] && { echo "Copying $TF_VARS to $COPY_LOCATION"; cp --remove-destination $TF_VARS $COPY_LOCATION; } || { echo "No $TF_VARS file found"; echo "assuming jenkins deployment"; }
 
 git add .
 git commit -m 'Your message'
@@ -74,12 +96,13 @@ git commit -m 'Your message'
 echo Removing unneeded backend example file
 TF_EXAMPLE_VARS=./envs/shared/backend.tf
 [ -f $TF_EXAMPLE_VARS ] && { echo "Removing unneeded $TF_EXAMPLE_VARS file: $TF_EXAMPLE_VARS"; rm $TF_EXAMPLE_VARS; } || { echo "No $TF_EXAMPLE_VARS file found"; exit 1; }
-
-echo Copying in needed backend example file
+ 
+echo Copying in needed backend file 
 TF_VARS=../../scripts/3-networks/backend.tf
 COPY_LOCATION=./envs/shared/.
-[ -f $TF_VARS ] && { echo "Copying $TF_VARS to $COPY_LOCATION"; cp $TF_VARS $COPY_LOCATION; } || { echo "No $TF_VARS file found"; exit 1; }
-
+[ -f $TF_VARS ] && { echo "Copying $TF_VARS to $COPY_LOCATION"; cp $TF_VARS $COPY_LOCATION; } || { echo "No $TF_VARS file found"; }
+ 
+ 
 echo Local shared file TF apply
 cd ./envs/shared/
 
