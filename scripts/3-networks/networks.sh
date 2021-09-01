@@ -104,10 +104,10 @@ git commit -m 'Your message'
 # COPY_LOCATION=./envs/production/.
 # [ -f $TF_VARS ] && { echo "Copying $TF_VARS to $COPY_LOCATION"; cp $TF_VARS $COPY_LOCATION; } || { echo "No $TF_VARS file found"; }
 
-# echo Copying in needed backend file 
-# TF_VARS=../../scripts/3-networks/backend.tf
-# COPY_LOCATION=./envs/shared/.
-# [ -f $TF_VARS ] && { echo "Copying $TF_VARS to $COPY_LOCATION"; cp $TF_VARS $COPY_LOCATION; } || { echo "No $TF_VARS file found"; }
+echo Copying in needed backend file 
+TF_VARS=../../scripts/3-networks/backend.tf
+COPY_LOCATION=./envs/shared/.
+[ -f $TF_VARS ] && { echo "Copying $TF_VARS to $COPY_LOCATION"; cp $TF_VARS $COPY_LOCATION; } || { echo "No $TF_VARS file found"; }
  
  
 echo Local shared file TF apply
