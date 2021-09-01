@@ -113,10 +113,10 @@ git commit -m 'Your message'
 echo Local shared file TF apply
 cd ./envs/shared/
 
-# terraform init
-# terraform plan
-# terraform apply --auto-approve
-# cd ../..
+terraform init
+terraform plan
+terraform apply --auto-approve
+cd ../..
 
 
 echo Pushing plan
