@@ -35,6 +35,10 @@ cp ../terraform-example-foundation/build/cloudbuild-tf-* .
 cp ../terraform-example-foundation/build/tf-wrapper.sh .
 chmod 755 ./tf-wrapper.sh
 
+echo Creating empty var files
+touch access_context.auto.tfvars
+touch common.auto.tfvars
+touch shared.auto.tfvars
 
 echo Removing unneeded access_context.auto.example.tfvars
 TF_EXAMPLE_VARS=./access_context.auto.example.tfvars
