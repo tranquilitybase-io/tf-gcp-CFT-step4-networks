@@ -165,22 +165,10 @@ cd ./envs/shared/
 echo ###
 ls
 pwd
-cat access_context.auto.tfvars.json
-cat common.auto.tfvars.json
-cat shared.auto.tfvars.json
-gcloud auth list
-cat backend.tf
-
-rm access_context.auto.tfvars
-rm common.auto.tfvars
-rm shared.auto.tfvars
-
-gcloud projects list 
-
 echo ###
 
 terraform init
-#terraform plan
+terraform plan
 #terraform apply --auto-approve
 # cd ../..
 
