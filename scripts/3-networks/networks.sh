@@ -162,6 +162,11 @@ COPY_LOCATION=./envs/shared/.
 echo Local shared file TF apply
 cd ./envs/shared/
 
+echo ###
+ls
+pwd
+echo ###
+
 terraform init
 terraform plan
 terraform apply --auto-approve
