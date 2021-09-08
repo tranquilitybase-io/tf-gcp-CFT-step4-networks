@@ -180,7 +180,7 @@ gcloud projects list
 echo ###
 
 terraform init
-terraform plan
+#terraform plan
 #terraform apply --auto-approve
 # cd ../..
 
