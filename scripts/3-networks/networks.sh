@@ -169,6 +169,7 @@ cat access_context.auto.tfvars.json
 cat common.auto.tfvars.json
 cat shared.auto.tfvars.json
 gcloud auth list
+cat backend.tf
 echo ###
 
 terraform init
