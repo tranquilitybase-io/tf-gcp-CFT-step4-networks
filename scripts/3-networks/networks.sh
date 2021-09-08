@@ -170,8 +170,8 @@ cat common.auto.tfvars.json
 cat shared.auto.tfvars.json
 echo ###
 
-# terraform init
-# terraform plan
+terraform init
+terraform plan
 # terraform apply --auto-approve
 # cd ../..
 
