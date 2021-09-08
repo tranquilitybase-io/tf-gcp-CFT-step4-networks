@@ -165,6 +165,9 @@ cd ./envs/shared/
 echo ###
 ls
 pwd
+cat access_context.auto.tfvars.json
+cat common.auto.tfvars.json
+cat shared.auto.tfvars.json
 echo ###
 
 # terraform init
