@@ -12,11 +12,14 @@ cd ./networks
 echo Cloning CFT
 CFT_FOLDER=./terraform-example-foundation
 [ -d $CFT_FOLDER ] && { echo "Removing past deployment file: $CFT_FOLDER"; rm -rf $CFT_FOLDER; } || echo "No past deployments found"
-git clone https://github.com/terraform-google-modules/terraform-example-foundation.git
+#git clone https://github.com/terraform-google-modules/terraform-example-foundation.git
+git clone https://github.com/tranquilitybase-io/terraform-example-foundation.git
+
 
 echo Checkout latest release
 cd ./terraform-example-foundation/
-git checkout ed164ba
+#git checkout ed164ba
+git checkout issue-1
 cd ..
 
 echo Cloning gcp networks GSR
