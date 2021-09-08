@@ -137,22 +137,6 @@ COPY_LOCATION=.
 git add .
 git commit -m 'Your message'
 
-
-# echo Copying in needed backend file 
-# TF_VARS=../../scripts/3-networks/backend.tf
-# COPY_LOCATION=./envs/development/.
-# [ -f $TF_VARS ] && { echo "Copying $TF_VARS to $COPY_LOCATION"; cp $TF_VARS $COPY_LOCATION; } || { echo "No $TF_VARS file found"; exit; }
-
-# echo Copying in needed backend file 
-# TF_VARS=../../scripts/3-networks/backend.tf
-# COPY_LOCATION=./envs/non-production/.
-# [ -f $TF_VARS ] && { echo "Copying $TF_VARS to $COPY_LOCATION"; cp $TF_VARS $COPY_LOCATION; } || { echo "No $TF_VARS file found"; }
-
-# echo Copying in needed backend file 
-# TF_VARS=../../scripts/3-networks/backend.tf
-# COPY_LOCATION=./envs/production/.
-# [ -f $TF_VARS ] && { echo "Copying $TF_VARS to $COPY_LOCATION"; cp $TF_VARS $COPY_LOCATION; } || { echo "No $TF_VARS file found"; }
-
 echo Copying in needed backend file 
 TF_VARS=../../scripts/3-networks/backend.tf
 COPY_LOCATION=./envs/shared/.
@@ -162,33 +146,28 @@ COPY_LOCATION=./envs/shared/.
 echo Local shared file TF apply
 cd ./envs/shared/
 
-echo ###
-ls
-pwd
-echo ###
-
 terraform init
 terraform plan
-#terraform apply --auto-approve
-# cd ../..
+terraform apply --auto-approve
+cd ../..
 
 
-# echo Pushing plan
-# git add .
-# git commit -m 'Your message'
-# git push --set-upstream origin plan --force
+echo Pushing plan
+git add .
+git commit -m 'Your message'
+git push --set-upstream origin plan --force
 
-# sleep 600
+sleep 600
 
-# git checkout -b production
-# git push origin production --force
+git checkout -b production
+git push origin production --force
 
-# sleep 600
+sleep 600
 
-# git checkout -b development
-# git push origin development --force
+git checkout -b development
+git push origin development --force
 
-# sleep 600
+sleep 600
 
-# git checkout -b non-production
-# git push origin non-production --force
+git checkout -b non-production
+git push origin non-production --force
