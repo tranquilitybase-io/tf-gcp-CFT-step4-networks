@@ -168,6 +168,7 @@ pwd
 cat access_context.auto.tfvars.json
 cat common.auto.tfvars.json
 cat shared.auto.tfvars.json
+gcloud auth list
 echo ###
 
 terraform init
