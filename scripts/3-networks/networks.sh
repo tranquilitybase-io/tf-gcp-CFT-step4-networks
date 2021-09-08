@@ -175,11 +175,13 @@ rm access_context.auto.tfvars
 rm common.auto.tfvars
 rm shared.auto.tfvars
 
+gcloud projects list 
+
 echo ###
 
 terraform init
 terraform plan
-terraform apply --auto-approve
+#terraform apply --auto-approve
 # cd ../..
 
 
